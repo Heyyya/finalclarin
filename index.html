@@ -12,7 +12,6 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            /* Set background image */
             background-image: url('back.jpg'); /* Background image */
             background-size: cover; /* Cover the whole body */
             background-repeat: no-repeat; /* Do not repeat the image */
@@ -22,6 +21,7 @@
         header {
             width: 100%;
             display: flex;
+            flex-wrap: wrap; /* Allow wrapping */
             align-items: center;
             justify-content: space-between; /* Keep spacing for header */
             background: linear-gradient(45deg, rgba(172, 164, 233, 0.8), rgba(238, 192, 143, 0.8), rgba(160, 148, 230, 0.8)); /* Adjusted background with transparency */
@@ -30,8 +30,9 @@
         }
 
         header img {
-            width: 300px;
-            height: 200px;
+            width: 100%;
+            max-width: 300px; /* Ensure image does not exceed this width */
+            height: auto; /* Maintain aspect ratio */
         }
 
         ul {
@@ -39,6 +40,7 @@
             padding: 0;
             margin: 0;
             display: flex;
+            flex-wrap: wrap; /* Allow wrapping */
         }
 
         ul > li {
@@ -74,31 +76,31 @@
             width: 200px; /* Set a fixed width */
         }
 
-        /* General styles for main content */
         main {
             text-align: center; /* Center align main content */
-            width: 80%; /* Set width for main content */
+            width: 90%; /* Use 90% for larger screens */
             max-width: 800px; /* Max width for main content */
             background-color: rgba(255, 255, 255, 0.8); /* White background with transparency */
             padding: 20px; /* Added padding for spacing */
             border-radius: 10px; /* Rounded corners */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); /* Box shadow for depth */
+            margin: 20px 0; /* Add margin above and below */
         }
 
         h1 {
             color: black;
-            font-size: 70px;
+            font-size: 5vw; /* Responsive font size */
             margin-bottom: 20px;
         }
 
         h2 {
             color: #333;
-            font-size: 50px;
+            font-size: 4vw; /* Responsive font size */
             margin-top: 20px;
         }
 
         p {
-            font-size: 16px;
+            font-size: 1.2em; /* Responsive font size */
             color: #333;
             margin: 10px auto;
             text-align: center;
@@ -106,7 +108,7 @@
         }
 
         .address {
-            font-size: 30px;
+            font-size: 1.5em; /* Responsive font size */
             color: rgb(0, 0, 0);
             font-weight: bold;
             margin: 20px 0;
@@ -115,7 +117,7 @@
         .map-container {
             width: 100%; /* Make map fill available space */
             max-width: 800px;
-            height: 400px;
+            height: 300px; /* Adjust height for better responsiveness */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -153,11 +155,29 @@
             margin-top: 20px; /* Space above footer */
         }
 
-        @keyframes backgroundAnimation {
-            0% { background-color: #aca4e9; }
-            50% { background-color: #eec08f; }
-            100% { background-color: #a094e6; }
+        @media screen and (max-width: 600px) {
+            header img {
+                width: 100%; /* Full width for smaller screens */
+                height: auto; /* Maintain aspect ratio */
+            }
+
+            ul > li {
+                margin-right: 10px; /* Reduced margin for smaller screens */
+            }
+
+            h1 {
+                font-size: 6vw; /* responsive font size for smaller screens */
+            }
+
+            h2 {
+                font-size: 5vw; /* responsive font size for smaller screens */
+            }
+
+            .map-container {
+                height: 200px; /* Lower height for small screens */
+            }
         }
+
     </style>
 </head>
 <body>
@@ -201,7 +221,7 @@
 
     <div class="map-container">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.987272108392!2d123.909869915391!3d8.228915781336053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32d5ab202c21e1d7%3A0x86c423587ea1c730!2sClarin%2C%20Misamis%20Occidental!5e0!3m2!1sen!2sph!4v1604358922134!5m2!1sen!2sph" 
-        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
     <div class="facts">
@@ -271,4 +291,4 @@
     <p>© 2024 Municipality of Clarin. All rights reserved.</p>
 </footer>
 </body>
-</html> 
+</html>
